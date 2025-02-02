@@ -12,19 +12,19 @@ from decouple import config
 
 
 
-TWILIO_ACCOUNT_SID=config('TWILIO_ACCOUNT_SID')
+TWILIO_ACCOUNT_SID='AC63c4c8107c93726e1cee04f1910264ad'
 TWILIO_ACCOUNT_SECRET='d6997c1c330ea7b668c76b147761d621'
 TWILIO_PHONE_NUMBER='+12186338258'
 
 RZP_KEY_ID=config('RZP_KEY_ID')
 
-RZP_KEY_SECRET="Re19uw61IIpBZesNeTxsyImd"
+RZP_KEY_SECRET=config('RZP_KEY_SECRET')
 
 def send_otp_phone(user_object):
 
     user_object.generate_otp()
     account_sid = 'account_sid'
-    auth_token = "d6997c1c330ea7b668c76b147761d621"
+    auth_token = config('auth_token')
     client = Client(account_sid, auth_token)
 
     message= client.messages.create(
